@@ -85,6 +85,29 @@ make[3]: warning:  Clock skew detected.  Your build may be incomplete.
 
 8. Upload the program by dragging and dropping the \*.uf2 file into the Pico drive
 
+### Using Visual Studio Code 
+
+This section is incomplete and only partially working.
+You will be able to click the "Run" button, which will trigger a make hello_world (target can also be chosen).
+After you can drag/drop the uf2 file as usual.
+However, the code in the editor will show import errors.
+
+1. Install the WSL (Windows Subsystem for Linux) plugin for VSCode and C/C++ plugins as required. Open VSCode from the project folder with 
+```
+code .
+```
+2. Install the CMake Tools plugin and set the `PICO_SDK_PATH` environment variable in its settings
+3. Configure a profile for the C/C++ plugin (e.g. call it WSL Ubuntu) and add an `include path` that points to the include folder in the pico-sdk repo.
+```
+ mnt/c/Users/david/Documents/GitHub/pico-sdk/src/common/pico_stdlib/include
+``` 
+4. Let VSCode run the cmake. The last lines of the output in the VSCode console should read:
+```
+[cmake] -- Configuring done
+[cmake] -- Generating done
+[cmake] -- Build files have been written to: /mnt/c/Users/david/Documents/GitHub/pico-examples/build
+```
+
 ## How to reset Pico
 
 See: https://www.okdo.com/project/raspberry-pi-pico-reset-button/#:~:text=Push%20and%20hold%20the%20reset,Release%20the%20BOOTSEL%20button.
